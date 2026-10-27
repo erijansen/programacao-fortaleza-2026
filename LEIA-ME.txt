@@ -1,0 +1,12 @@
+FORTALEZA — PROGRAMAÇÃO INTEGRADA REV3
+
+Abra index.html para pré-visualizar.
+Para GitHub Pages, envie index.html e a pasta assets (com seu conteúdo), mantendo a estrutura.
+
+DESLOCAMENTOS USADOS NOS CONTADORES
+08NOV2026 — DN-01 para Fortaleza (horário ASD).
+10NOV2026 — comitiva IAM para Fortaleza (horário ASD).
+17NOV2026 — regresso da comitiva IAM para Natal (horário ASD). O regresso do DN-01 também consta em 17NOV, mas destino e detalhes devem ser confirmados.
+
+Os ícones Mapas abrem uma pesquisa pelo nome do local, não uma coordenada validada.
+A publicação pública requer autorização institucional específica.
