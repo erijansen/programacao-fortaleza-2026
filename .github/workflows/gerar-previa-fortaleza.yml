@@ -1,0 +1,51 @@
+name: Preparar imagem de compartilhamento Fortaleza 2026
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/gerar-previa-fortaleza.yml'
+      - 'assets/logo-programacao-fortaleza-2026.png'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  criar-imagem:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obter arquivos do repositório
+        uses: actions/checkout@v4
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Instalar Pillow
+        run: python -m pip install --quiet pillow
+      - name: Gerar imagem azul para prévia do WhatsApp
+        shell: bash
+        run: |
+          python - <<'PY'
+          from PIL import Image
+          from pathlib import Path
+          source = Image.open("assets/logo-programacao-fortaleza-2026.png").convert("RGBA")
+          canvas = Image.new("RGB", (1000, 1000), (2, 30, 92))
+          source.thumbnail((900, 900), Image.Resampling.LANCZOS)
+          x = (1000 - source.width) // 2
+          y = (1000 - source.height) // 2
+          canvas.paste(source, (x, y), mask=source.getchannel("A"))
+          target = Path("assets/icone-fortaleza-2026-compartilhar.jpg")
+          canvas.save(target, "JPEG", quality=92, optimize=True, progressive=True, subsampling=0)
+          print("Prévia gerada:", target, target.stat().st_size, "bytes")
+          PY
+      - name: Salvar imagem no repositório
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/icone-fortaleza-2026-compartilhar.jpg
+          if ! git diff --cached --quiet; then
+            git commit -m "Gerar imagem de compartilhamento Fortaleza 2026 com fundo azul"
+            git push origin HEAD:main
+          fi
