@@ -1,0 +1,34 @@
+/* REV24 — Impressão de cada dia em A4 paisagem. */
+.home-day-wrap{display:flex;flex-direction:column;min-width:0}
+.home-day-wrap .home-day{width:100%;flex:1;border-radius:14px 14px 0 0;min-height:78px}
+.home-day-print{width:100%;border:1px solid #cbd8e7;border-top:0;border-radius:0 0 14px 14px;padding:10px 8px;background:#eaf3fe;color:#103b72;font:700 .8rem system-ui,Arial,sans-serif;cursor:pointer}
+.home-day-print:hover{background:#d8eafb}
+.day-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:12px}
+.day-heading h2{margin:10px 2px}
+.day-print{border:1px solid #bad0e6;border-radius:10px;background:#edf5ff;color:#103b72;padding:7px 11px;font:750 .8rem system-ui,Arial,sans-serif;cursor:pointer}
+.day-print:hover{background:#d9eaff}
+@media screen{#print-sheet{display:none!important}}
+@media print{
+@page{size:A4 landscape;margin:8mm}
+html,body{margin:0!important;padding:0!important;width:auto!important;background:#fff!important;color:#111!important;font:8pt/1.15 Arial,sans-serif!important}
+body> :not(#print-sheet){display:none!important}
+#print-sheet{display:block!important;margin:0!important;padding:0!important;max-width:none!important;width:100%!important}
+.print-day-block{break-after:page;page-break-after:always}
+.print-day-block:last-child{break-after:auto;page-break-after:auto}
+.print-head{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #17365d;padding:0 0 3mm;margin:0 0 2mm;gap:7mm}
+.print-head h1{font-size:13pt!important;margin:0 0 1mm!important;line-height:1.12;color:#0b2751!important}
+.print-head p{font-size:7.5pt!important;margin:0!important;color:#34455d!important}
+.print-day{font-size:12pt;font-weight:800;color:#0b2751;text-align:right;white-space:nowrap}
+.print-sub{margin:1.5mm 0 2mm;font-size:7.1pt;color:#4d6075}
+.print-table{border-collapse:collapse;table-layout:fixed;width:100%;font-size:7.7pt;line-height:1.13}
+.print-table th{font-weight:700;color:#0b2751;background:#edf2f7!important;padding:1.9mm 1.6mm;text-align:left;border:1px solid #bfcbda}
+.print-table td{vertical-align:top;padding:1.4mm 1.6mm;border:1px solid #d0d9e4;overflow-wrap:anywhere}
+.print-table tr{break-inside:avoid;page-break-inside:avoid}
+.print-table tbody tr:nth-child(even){background:#f6f8fb!important}
+.print-time{font-weight:800;color:#0b2751;white-space:nowrap;font-size:7.8pt}
+.print-title{font-weight:700;color:#172f4e}
+.print-meta{font-size:6.8pt;color:#526377;margin-top:.3mm}
+.print-note{font-size:6.8pt;color:#40526b;margin-top:.3mm}
+.print-dn{font-weight:700;color:#633e00;font-size:6.8pt}
+.print-footer{display:flex;justify-content:space-between;gap:5mm;border-top:1px solid #ced7e2;margin-top:2mm;padding-top:1.5mm;font-size:6.8pt;color:#536276}
+}
