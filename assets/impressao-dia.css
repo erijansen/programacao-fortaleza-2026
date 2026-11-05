@@ -35,3 +35,15 @@ body> :not(#print-sheet){display:none!important}
 @media print{.print-day-block.dense .print-head{padding-bottom:2mm;margin-bottom:1.5mm}.print-day-block.dense .print-table{font-size:6.8pt;line-height:1.07}.print-day-block.dense .print-table td{padding:.8mm 1.2mm}.print-day-block.dense .print-table th{padding:1mm 1.2mm}.print-day-block.dense .print-meta,.print-day-block.dense .print-note,.print-day-block.dense .print-dn{font-size:6.1pt;line-height:1.06}.print-day-block.dense .print-title{font-size:6.8pt}}
 
 @media print{.print-day-block.dense .print-meta{display:none}.print-day-block.dense .print-footer{font-size:6pt}.print-day-block.dense .print-head h1{font-size:12pt!important}}
+
+/* REV25 — Navegação legível em computador, tablet e celular. */
+#days,#days-bottom{display:flex;flex-wrap:nowrap;gap:8px;overflow-x:auto;overflow-y:hidden;max-width:100%;scrollbar-width:thin;scroll-padding-inline:8px;padding:7px 2px 12px}
+#days button,#days-bottom button{box-sizing:border-box;flex:0 0 104px;width:104px;min-width:104px;max-width:104px;min-height:65px;padding:10px 5px;border-radius:13px;font-size:.91rem;line-height:1.15;white-space:nowrap;overflow:hidden;text-align:center}
+#days button small,#days-bottom button small{display:block;margin-top:5px;font-size:.73rem;font-weight:500;white-space:nowrap}
+#days-bottom{margin:23px 0 13px;border-top:1px solid #dce5ef;padding-top:18px;scroll-margin-top:18px}
+#days-bottom button.active{background:var(--navy);border-color:var(--navy);color:#fff}
+#days-bottom button.active small{color:#dce5f1}
+#days-bottom:before{content:"Trocar dia:";flex:0 0 auto;align-self:center;margin-right:3px;font-size:.77rem;font-weight:800;color:#3d5576}
+.update-marker{display:inline-block!important;margin:12px 0 0!important;padding:7px 12px;border:1px solid #cadbea;border-radius:9px;background:#e8f3ff;color:#18416d!important;font-size:.82rem!important;font-weight:800}
+@media(max-width:600px){#days,#days-bottom{gap:7px}#days button,#days-bottom button{flex-basis:90px;width:90px;min-width:90px;max-width:90px;min-height:62px;font-size:.84rem;padding:9px 4px}#days button small,#days-bottom button small{font-size:.7rem}#days-bottom:before{margin-right:0}}
+@media print{#days-bottom,.update-marker{display:none!important}}
