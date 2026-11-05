@@ -33,3 +33,5 @@ body> :not(#print-sheet){display:none!important}
 .print-footer{display:flex;justify-content:space-between;gap:5mm;border-top:1px solid #ced7e2;margin-top:2mm;padding-top:1.5mm;font-size:6.8pt;color:#536276}
 }
 @media print{.print-day-block.dense .print-head{padding-bottom:2mm;margin-bottom:1.5mm}.print-day-block.dense .print-table{font-size:6.8pt;line-height:1.07}.print-day-block.dense .print-table td{padding:.8mm 1.2mm}.print-day-block.dense .print-table th{padding:1mm 1.2mm}.print-day-block.dense .print-meta,.print-day-block.dense .print-note,.print-day-block.dense .print-dn{font-size:6.1pt;line-height:1.06}.print-day-block.dense .print-title{font-size:6.8pt}}
+
+@media print{.print-day-block.dense .print-meta{display:none}.print-day-block.dense .print-footer{font-size:6pt}.print-day-block.dense .print-head h1{font-size:12pt!important}}
